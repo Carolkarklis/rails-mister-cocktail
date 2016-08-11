@@ -1,2 +1,16 @@
-<h1>Doses#new</h1>
-<p>Find me in app/views/doses/new.html.erb</p>
+<div class="container text-center">
+  <h2>New doses </h2>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.input :description, label: 'Give the dose' %>
+      <%= f.association :ingredient %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+</div>
+

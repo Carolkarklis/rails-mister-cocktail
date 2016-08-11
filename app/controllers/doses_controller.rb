@@ -5,7 +5,7 @@ class DosesController < ApplicationController
   end
 
   def show
-    @doses = set_doses
+    @doses = set_dose
   end
 
   # GET /restaurants/new
@@ -14,9 +14,10 @@ class DosesController < ApplicationController
   end
 
   def create
-    @dose = @cocktail.dose.build(dose_params)
+    @cocktail = find_cocktail
+    @dose = @cocktail.doses.build(dose_params)
     if @dose.save
-      redirect_to cocktail_path(@cocktail)
+      redirect_to cocktail_path(@dose)
     else
       render :new
     end
