@@ -103,18 +103,4 @@ Ingredient.create(name: "Woodruff Syrup ")
 Ingredient.create(name: "Worcestershire Sauce ")
 Ingredient.create(name: "Yoghurt")
 
-10.times do
-  cocktail = Cocktail.new({
-    name: Faker::Hipster.word.capitalize + " " + %w(Drink Cocktail Banger).sample
-  })
-  cocktail.save
-  5.times do
-    ingredients = Ingredient.all
-    dose = Dose.new({
-      description: (1..10).to_a.sample.to_s + %w(spoon cup squirt unit).sample,
-      cocktail_id: cocktail.id,
-      ingredient_id: ingredients.sample.id
-      })
-    dose.save
-  end
-end
+

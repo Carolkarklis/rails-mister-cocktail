@@ -1,12 +1,18 @@
 <div class="container text-center">
+
   <h2>Here is a list of all cocktails we have.</h2>
+  <br>
+  <br>
   <div class="row">
     <% @cocktails.each  do |cocktail| %>
           <div class="col-xs-12 col-sm-4">
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://josephcphillips.com/wp-content/uploads/2015/04/tray-of-mojitos.jpg'); padding: 10px;">
-              <div class="card-category"> <h4> <%= link_to "#{cocktail.name}", cocktail_path(cocktail) %></h4></div>
-
+            <div class="card text-center">
+              <%= image_tag cocktail.photo.url(:index_photo)%>
+              <div class="card-category"> <h4>
+              <%= link_to "#{cocktail.name}", cocktail_path(cocktail), {:style => 'color: red'} %>
+              </h4></div>
             </div>
+
             <br>
           </div>
     <%end%>

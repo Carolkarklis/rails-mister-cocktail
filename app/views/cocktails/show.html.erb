@@ -1,6 +1,7 @@
 <div class="container text-center ">
   <h2> <%= @cocktail.name %></h2>
-  <p> You can add ingredients to cocktail <%= link_to 'here', new_cocktail_dose_path(@cocktail) %>
+  <%= image_tag @cocktail.photo.url(:show_photo) %>
+  <p> <em> You can add ingredients to cocktail <%= link_to 'here', new_cocktail_dose_path(@cocktail) %></em></p>
 
   <h3> Cocktail's ingredients: </h3>
   <ul>

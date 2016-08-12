@@ -17,13 +17,13 @@ class DosesController < ApplicationController
     @cocktail = find_cocktail
     @dose = @cocktail.doses.build(dose_params)
     if @dose.save
-      redirect_to cocktail_path(@dose)
+      redirect_to new_cocktail_dose_path(@cocktail)
     else
       render :new
     end
   end
 
-    def destroy
+  def destroy
     cocktail = find_cocktail
     @dose = cocktail.doses.find(params[:id])
     @dose.destroy
@@ -38,7 +38,7 @@ class DosesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dose_params
-      params.require(:dose).permit(:description, :cocktail_id, :ingredient_id)
+      params.require(:dose).permit(:description, :ingredient_id)
     end
 
     def find_cocktail
