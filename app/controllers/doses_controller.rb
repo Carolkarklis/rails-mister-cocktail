@@ -23,6 +23,13 @@ class DosesController < ApplicationController
     end
   end
 
+    def destroy
+    cocktail = find_cocktail
+    @dose = cocktail.doses.find(params[:id])
+    @dose.destroy
+    redirect_to cocktail_path(cocktail)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_dose
